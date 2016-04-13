@@ -1,3 +1,3 @@
 'use strict';
 
-var evtApp = angular.module('evtApp', []);
+var evtApp = angular.module('evtApp', ['ngSanitize']);

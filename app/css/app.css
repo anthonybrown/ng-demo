@@ -1,8 +1,18 @@
 /* app css stylesheet */
 ::selection {
-	background-color: #BBAE0F;
+	background-color: #C4473A;
 	color: #fff;
+	text-shadow: none;
 }
+::-moz-selection {
+	background-color: #C4473A;
+	color: #fff;
+	text-shadow: none;
+}
+
+.red { color: #DA0202; }
+.yellow { color: yellow; }
+.blue { color: #3dc8ff; }
 
 .hoverwell:hover {
   background-color: #52575c;
@@ -32,6 +42,15 @@ select, textarea {
 .votingButton {
   padding-left:6px;
   cursor:pointer;
+}
+
+[ng\ :cloak],
+[ng-cloak],
+[ng-data-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+	display: none;
 }
 
 .sessionThumbnail {

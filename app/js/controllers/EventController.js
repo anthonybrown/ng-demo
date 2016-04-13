@@ -1,7 +1,16 @@
 'use strict';
 
 evtApp.controller('EventController',
-	function EventController($scope) {
+		function EventController($scope) {
+		// ng-bind-html strips away any html attributes it finds
+		// look in the html
+		$scope.snippet = '<span style="color:red">Hi There</span>'
+		// as long as boolean is true, ng-hide will hide and ng-show will show
+		$scope.boolValue = true;
+		$scope.mystyle = { color: '#cbdd04' }
+		$scope.mycolor = { color: 'steelblue' }
+		$scope.myClass = 'red'
+		$scope.myclass = 'blue'
 		$scope.event = {
 			name: 'Angular Boot Camp',
 			date: '4/12/2016',
