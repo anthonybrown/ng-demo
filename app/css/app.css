@@ -102,5 +102,9 @@ select, textarea {
 
 h6 {
 	text-transform: uppercase;
+	font-weight: 300;
 }
-
+.container-fluid {
+	padding-left: 3em;
+	padding-right: 3em;
+}

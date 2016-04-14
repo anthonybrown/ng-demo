@@ -19,20 +19,37 @@
 			<img ng-src="{{ event.imageUrl }}" alt="{{event.name}}" />
 			<div class='row'>
 				<div class='span11'>
-					<h2 ng-style='mystyle' ng-bind-template='{{event.name}} {{ event.date }}'></h2>
+					<h2 ng-style='mystyle' ng-bind-template='{{event.name | uppercase }}'></h2>
+				<hr />
 				</div>
 			</div>
-
+			<p> Disabled directive</p>
+			<button ng-disabled='buttonDisabled' class='btn'>Disabled</button>
+				<br />
+				<hr />
+				<div>
+					{{ 3.1415926535 | number:2 }}&nbsp; <span>PI, using the Number filter</span>
+				</div>
+				<div>
+					{{ { a:3, b:'Hello', c:{aa:49} } | json }}
+				</div>
+				<hr />
+			<div ng-non-bindable>
+				This is a non-bindable directive:	{{ 1 + 2 }}
+			</div>
+			<hr />
 			<div ng-style='mycolor' ng-bind-html-unsafe='snippet'>some title</div>
+			<hr />
 			<div ng-class='myClass' ng-bind-html='snippet'>some title</div>
-
+			<hr />
 			<h2 ng-class='myclass' ng-show='boolValue'>Show This</h2>
 			<h2 ng-hide='boolValue'>Hide This</h2>
 
 			<div class='row'>
 				<div class='span3'>
-					<div><strong>Date: </strong>{{ event.date }}</div>
+					<div><strong>Date: </strong>{{ event.date | date:'mediumDate' }}</div>
 					<div><strong>Time: </strong>{{ event.time }}</div>
+					<div><strong>Price: </strong>{{ 34 | currency : "zł " }}</div>
 				</div>
 				<div class='span4'>
 					<address>
@@ -46,9 +63,23 @@
 
 			<hr />
 
+			<p>3 * 10  = <span>{{ 3 * 10 }}</span></p><br>
+			{{ 'Hello' + 'Angular' }}<br>
+			{{ [1,2,3][2] }}<br>
+
+			<hr />
+
 			<h3>Sessions</h3>
+
+			Order by:
+			<select ng-model='sortorder' class='input-small'>
+				<option selected value="name">Name</option>
+				<option value='-upVoteCount'>Votes</option>
+			</select>
+
+
 			<ul class='thumbnails'>
-				<li ng-repeat='session in event.sessions'>
+				<li ng-repeat='session in event.sessions | orderBy:sortorder | limitTo:2'>
 					<div class='row session'>
 					<div class='span0 well votingWidget'>
 						<div class='votingButton' ng-click='upVoteSession(session)'>
@@ -61,7 +92,7 @@
 							<i class='icon-chevron-down'></i>
 						</div>
 					</div>
-						<div class='well span4'>
+						<div class='well span5'>
 							<h4 class='well-title'>{{ session.name }} </h4>
 							<h6>{{ session.presenter }}</h6>
 							<span>Duration: {{ session.duration }}</span><br>

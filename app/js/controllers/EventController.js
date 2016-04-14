@@ -6,14 +6,16 @@ evtApp.controller('EventController',
 		// look in the html
 		$scope.snippet = '<span style="color:red">Hi There</span>'
 		// as long as boolean is true, ng-hide will hide and ng-show will show
+		$scope.sortorder = 'name'
 		$scope.boolValue = true;
 		$scope.mystyle = { color: '#cbdd04' }
 		$scope.mycolor = { color: 'steelblue' }
 		$scope.myClass = 'red'
 		$scope.myclass = 'blue'
+		$scope.buttonDisabled = true,
 		$scope.event = {
 			name: 'Angular Boot Camp',
-			date: '4/12/2016',
+			date: '1460433600000',
 			time: '02:52 pm',
 			location: {
 				address: 'Google Headquarters',
